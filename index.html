@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Competitivo - Jogo de Game Theory</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🏢 Mercado Competitivo</h1>
+        <p class="subtitle">Aprenda Game Theory na prática!</p>
+
+        <div class="progress-container">
+            <div class="progress-label">
+                <span>Rodada <span id="currentRound">1</span> de 5</span>
+                <span>Progresso</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <p>Você controla uma empresa que compete com outra. Escolha sua estratégia de preço e veja como sua decisão afeta o mercado!</p>
+        </div>
+
+        <div class="scores">
+            <div class="score-card">
+                <div class="score-label">Seu Lucro</div>
+                <div class="score-value" id="playerScore">0</div>
+            </div>
+            <div class="score-card ai">
+                <div class="score-label">Lucro Concorrente</div>
+                <div class="score-value" id="aiScore">0</div>
+            </div>
+        </div>
+
+        <div class="strategy-buttons" id="strategyButtons">
+            <button class="strategy-btn" onclick="playerChoice('baixar')">
+                <div class="strategy-icon">🔻</div>
+                <div>Baixar Preço</div>
+            </button>
+            <button class="strategy-btn" onclick="playerChoice('manter')">
+                <div class="strategy-icon">➖</div>
+                <div>Manter Preço</div>
+            </button>
+            <button class="strategy-btn" onclick="playerChoice('aumentar')">
+                <div class="strategy-icon">🔺</div>
+                <div>Aumentar Preço</div>
+            </button>
+        </div>
+
+        <div class="result-area" id="resultArea">
+            <h3 class="result-title">Resultado da Rodada</h3>
+            <div class="choices">
+                <div class="choice">
+                    <div class="choice-label">Sua Escolha</div>
+                    <div class="choice-value" id="playerChoice">-</div>
+                </div>
+                <div class="choice">
+                    <div class="choice-label">Concorrente</div>
+                    <div class="choice-value" id="aiChoice">-</div>
+                </div>
+            </div>
+            <div class="round-result">
+                <div class="profit-info">
+                    <div class="profit-item">
+                        <div class="profit-label">Seu Lucro</div>
+                        <div class="profit-value" id="playerProfit">+0</div>
+                    </div>
+                    <div class="profit-item">
+                        <div class="profit-label">Seus Clientes</div>
+                        <div class="profit-value" id="playerClients">0</div>
+                    </div>
+                </div>
+                <div class="result-message" id="resultMessage"></div>
+            </div>
+        </div>
+
+        <button class="next-btn" id="nextBtn" onclick="nextRound()" disabled>Próxima Rodada</button>
+
+        <div class="final-result" id="finalResult">
+            <h2>🎉 Jogo Finalizado!</h2>
+            <div class="final-score" id="finalScore">0 pontos</div>
+
+            <div class="educational-message">
+                <h3>📚 Nash Equilibrium</h3>
+                <p>
+                    <strong>O que você aprendeu:</strong><br><br>
+                    Mesmo que baixar preços pareça vantajoso inicialmente, quando ambas empresas fazem isso,
+                    o lucro diminui para todos. Este é um exemplo clássico do <strong>Dilema do Prisioneiro</strong>
+                    na Game Theory.<br><br>
+                    No <strong>Nash Equilibrium</strong>, nenhum jogador pode melhorar seu resultado mudando
+                    unilateralmente sua estratégia. No mercado real, isso explica por que empresas às vezes
+                    mantêm preços estáveis mesmo quando poderiam competir mais agressivamente.<br><br>
+                    A cooperação (manter preços) geralmente traz melhores resultados para todos do que a
+                    competição desenfreada (guerra de preços).
+                </p>
+            </div>
+
+            <button class="restart-btn" onclick="restartGame()">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
